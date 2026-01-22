@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Eid Mubarak Surprise</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe4ec 50%, #ffd9e6 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+            color: #8b5a7c;
+            overflow-x: hidden;
+            touch-action: manipulation;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 30px 20px;
+            box-shadow: 0 15px 35px rgba(219, 112, 147, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        /* Mobile-first responsive design */
+        @media (min-width: 768px) {
+            .container {
+                padding: 50px 40px;
+                border-radius: 30px;
+            }
+        }
+        
+        .golden-border {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #db7093, #ff69b4) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+        
+        @media (min-width: 768px) {
+            .golden-border {
+                top: 15px;
+                left: 15px;
+                right: 15px;
+                bottom: 15px;
+                border-radius: 25px;
+                border-width: 2px;
+            }
+        }
+        
+        .eid-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #db7093 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 3px 8px rgba(219, 112, 147, 0.15);
+            animation: titleGlow 3s infinite alternate;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 480px) {
+            .eid-title {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .eid-title {
+                font-size: 4rem;
+                margin-bottom: 15px;
+            }
+        }
+        
+        @keyframes titleGlow {
+            0% { text-shadow: 0 3px 8px rgba(219, 112, 147, 0.15); }
+            100% { text-shadow: 0 5px 15px rgba(219, 112, 147, 0.25), 0 0 25px rgba(255, 105, 180, 0.15); }
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #8b5a7c;
+            font-weight: 500;
+            opacity: 0.9;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+        
+        @media (min-width: 480px) {
+            .subtitle {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .subtitle {
+                font-size: 1.6rem;
+                margin-bottom: 40px;
+            }
+        }
+        
+        .prompt-container {
+            background: linear-gradient(145deg, rgba(255, 240, 245, 0.95), rgba(255, 230, 240, 0.95));
+            border-radius: 20px;
+            padding: 25px 20px;
+            margin: 25px 0;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            box-shadow: 0 10px 20px rgba(219, 112, 147, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @media (min-width: 768px) {
+            .prompt-container {
+                padding: 40px 30px;
+                margin: 40px 0;
+                border-radius: 25px;
+            }
+        }
+        
+        .prompt-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff69b4, #ff1493, #db7093, #ff1493, #ff69b4);
+        }
+        
+        @media (min-width: 768px) {
+            .prompt-container:before {
+                height: 5px;
+            }
+        }
+        
+        .prompt-question {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            color: #c71585;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            line-height: 1.3;
+            padding: 0 10px;
+        }
+        
+        @media (min-width: 480px) {
+            .prompt-question {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .prompt-question {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+        
+        @media (min-width: 480px) {
+            .button-container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 25px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .button-container {
+                gap: 40px;
+                margin-top: 40px;
+            }
+        }
+        
+        .btn {
+            padding: 16px 35px;
+            font-size: 1.4rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 150px;
+            width: 100%;
+            max-width: 280px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            letter-spacing: 0.3px;
+        }
+        
+        @media (min-width: 480px) {
+            .btn {
+                width: auto;
+                min-width: 160px;
+                padding: 16px 40px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .btn {
+                padding: 20px 50px;
+                font-size: 1.7rem;
+                min-width: 180px;
+                box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+            }
+        }
+        
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.6s;
+        }
+        
+        .btn:hover:before,
+        .btn:active:before {
+            left: 100%;
+        }
+        
+        .btn-yes {
+            background: linear-gradient(145deg, #ff69b4, #ff1493);
+            color: white;
+            border: 2px solid #ffb6c1;
+        }
+        
+        @media (min-width: 768px) {
+            .btn-yes {
+                border-width: 3px;
+            }
+        }
+        
+        .btn-yes:hover,
+        .btn-yes:active {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 25px rgba(255, 105, 180, 0.4);
+        }
+        
+        .btn-no {
+            background: linear-gradient(145deg, #ff69b4, #db7093);
+            color: white;
+            border: 2px solid #ffc0cb;
+        }
+        
+        @media (min-width: 768px) {
+            .btn-no {
+                border-width: 3px;
+            }
+        }
+        
+        .btn-no:hover,
+        .btn-no:active {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 25px rgba(219, 112, 147, 0.4);
+        }
+        
+        .btn-no.disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.08) !important;
+            background: linear-gradient(145deg, #d8bfd8, #dda0dd);
+            border: 2px solid #e6e6fa;
+        }
+        
+        .btn-no.disabled:hover:before,
+        .btn-no.disabled:active:before {
+            left: -100%;
+        }
+        
+        .message-container {
+            display: none;
+            margin-top: 30px;
+            padding: 25px 20px;
+            background: linear-gradient(145deg, rgba(255, 250, 250, 0.98), rgba(255, 245, 245, 0.98));
+            border-radius: 20px;
+            animation: fadeIn 1s ease;
+            border: 2px solid rgba(255, 105, 180, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(219, 112, 147, 0.08);
+        }
+        
+        @media (min-width: 768px) {
+            .message-container {
+                padding: 40px 35px;
+                margin-top: 50px;
+                border-radius: 25px;
+            }
+        }
+        
+        .message-container:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff69b4, #ff1493, #db7093, #ff1493, #ff69b4);
+        }
+        
+        @media (min-width: 768px) {
+            .message-container:before {
+                height: 5px;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .eid-wish {
+            font-size: 2rem;
+            color: #c71585;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            text-shadow: 0 1px 5px rgba(199, 21, 133, 0.1);
+            font-weight: 800;
+        }
+        
+        @media (min-width: 480px) {
+            .eid-wish {
+                font-size: 2.3rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .eid-wish {
+                font-size: 2.8rem;
+                margin-bottom: 30px;
+            }
+        }
+        
+        .eid-message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #8b5a7c;
+            text-align: center;
+            padding: 0 5px;
+        }
+        
+        @media (min-width: 480px) {
+            .eid-message {
+                font-size: 1.2rem;
+                line-height: 1.7;
+                padding: 0 15px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .eid-message {
+                font-size: 1.4rem;
+                line-height: 1.8;
+                margin-bottom: 35px;
+                padding: 0 20px;
+            }
+        }
+        
+        .eid-message p {
+            margin-bottom: 15px;
+            position: relative;
+            padding: 10px 15px;
+            background: rgba(255, 240, 245, 0.5);
+            border-radius: 15px;
+            border-left: 4px solid #ff69b4;
+        }
+        
+        @media (min-width: 768px) {
+            .eid-message p {
+                margin-bottom: 20px;
+                padding: 15px 20px;
+            }
+        }
+        
+        .heart-icon {
+            color: #ff1493;
+            font-size: 1.3rem;
+            margin: 0 3px;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        .special-highlight {
+            background: linear-gradient(145deg, rgba(255, 182, 193, 0.3), rgba(255, 192, 203, 0.3)) !important;
+            border-left: 4px solid #ff1493 !important;
+            font-weight: 600;
+        }
+        
+        .signature {
+            font-size: 1.4rem;
+            color: #ff69b4;
+            margin-top: 25px;
+            font-style: italic;
+            font-weight: 700;
+            text-shadow: 0 1px 3px rgba(255, 105, 180, 0.2);
+            line-height: 1.4;
+        }
+        
+        @media (min-width: 768px) {
+            .signature {
+                font-size: 1.8rem;
+                margin-top: 35px;
+            }
+        }
+        
+        /* Decoration elements - hidden on very small screens */
+        .decoration {
+            position: absolute;
+            font-size: 1.8rem;
+            color: rgba(255, 105, 180, 0.3);
+            z-index: 0;
+            animation: float 8s infinite ease-in-out;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.03));
+            display: none;
+        }
+        
+        @media (min-width: 480px) {
+            .decoration {
+                display: block;
+                font-size: 2rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .decoration {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+        
+        @media (min-width: 768px) {
+            @keyframes float {
+                0%, 100% { transform: translateY(0) rotate(0deg); }
+                50% { transform: translateY(-20px) rotate(5deg); }
+            }
+        }
+        
+        .decoration:nth-child(1) { top: 5%; left: 3%; animation-delay: 0s; }
+        .decoration:nth-child(2) { top: 10%; right: 4%; animation-delay: 1s; }
+        .decoration:nth-child(3) { bottom: 15%; left: 5%; animation-delay: 2s; }
+        .decoration:nth-child(4) { bottom: 8%; right: 3%; animation-delay: 3s; }
+        .decoration:nth-child(5) { top: 40%; left: 2%; animation-delay: 4s; display: none; }
+        .decoration:nth-child(6) { top: 35%; right: 2%; animation-delay: 5s; display: none; }
+        
+        @media (min-width: 768px) {
+            .decoration:nth-child(5),
+            .decoration:nth-child(6) {
+                display: block;
+            }
+        }
+        
+        .moon {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(145deg, #ffb6c1, #ff69b4);
+            border-radius: 50%;
+            box-shadow: 0 0 25px rgba(255, 105, 180, 0.4), inset 0 -5px 10px rgba(255, 255, 255, 0.7);
+            animation: moonGlow 4s infinite alternate;
+            z-index: 1;
+        }
+        
+        @media (min-width: 480px) {
+            .moon {
+                width: 70px;
+                height: 70px;
+                top: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .moon {
+                width: 100px;
+                height: 100px;
+                top: 30px;
+                right: 35px;
+                box-shadow: 0 0 40px rgba(255, 105, 180, 0.5), inset 0 -8px 15px rgba(255, 255, 255, 0.8);
+            }
+        }
+        
+        @keyframes moonGlow {
+            0% { box-shadow: 0 0 25px rgba(255, 105, 180, 0.4), inset 0 -5px 10px rgba(255, 255, 255, 0.7); }
+            100% { box-shadow: 0 0 35px rgba(255, 105, 180, 0.6), inset 0 -5px 10px rgba(255, 255, 255, 0.7); }
+        }
+        
+        @media (min-width: 768px) {
+            @keyframes moonGlow {
+                0% { box-shadow: 0 0 40px rgba(255, 105, 180, 0.5), inset 0 -8px 15px rgba(255, 255, 255, 0.8); }
+                100% { box-shadow: 0 0 60px rgba(255, 105, 180, 0.7), inset 0 -8px 15px rgba(255, 255, 255, 0.8); }
+            }
+        }
+        
+        .moon::before {
+            content: '';
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 15px;
+            height: 15px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (min-width: 480px) {
+            .moon::before {
+                top: 15px;
+                left: 15px;
+                width: 18px;
+                height: 18px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .moon::before {
+                top: 22px;
+                left: 22px;
+                width: 25px;
+                height: 25px;
+            }
+        }
+        
+        .mosque-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #ff69b4;
+            text-shadow: 0 3px 8px rgba(255, 105, 180, 0.3);
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.05));
+        }
+        
+        @media (min-width: 480px) {
+            .mosque-icon {
+                font-size: 4rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .mosque-icon {
+                font-size: 5rem;
+                margin-bottom: 20px;
+            }
+        }
+        
+        .no-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(145deg, #ffffff, #fff5f5);
+            padding: 25px 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+            border: 2px solid #ffb6c1;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+        
+        @media (min-width: 480px) {
+            .no-message {
+                padding: 30px 25px;
+                width: 85%;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .no-message {
+                padding: 35px 30px;
+                border-radius: 25px;
+                border-width: 3px;
+                max-width: 450px;
+            }
+        }
+        
+        .no-message:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff69b4, #ff1493);
+        }
+        
+        .no-message.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+        
+        .no-message h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #ff1493;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        @media (min-width: 480px) {
+            .no-message h3 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .no-message h3 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+        }
+        
+        .no-message p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            color: #8b5a7c;
+            margin-bottom: 8px;
+        }
+        
+        @media (min-width: 480px) {
+            .no-message p {
+                font-size: 1.2rem;
+                line-height: 1.6;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .no-message p {
+                font-size: 1.3rem;
+                line-height: 1.7;
+                margin-bottom: 10px;
+            }
+        }
+        
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 25px;
+            background: linear-gradient(145deg, #ff69b4, #ff1493);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+            min-width: 140px;
+        }
+        
+        .close-btn:hover,
+        .close-btn:active {
+            background: linear-gradient(145deg, #ff85c1, #ff69b4);
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 6px 15px rgba(255, 105, 180, 0.4);
+        }
+        
+        @media (min-width: 768px) {
+            .close-btn {
+                margin-top: 25px;
+                padding: 12px 30px;
+                font-size: 1.1rem;
+                min-width: 160px;
+            }
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 999;
+            display: none;
+            backdrop-filter: blur(3px);
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        .instruction {
+            margin-top: 20px;
+            font-size: 0.95rem;
+            color: #c71585;
+            font-style: italic;
+            font-weight: 500;
+            opacity: 0.8;
+            line-height: 1.4;
+            padding: 0 10px;
+        }
+        
+        @media (min-width: 480px) {
+            .instruction {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .instruction {
+                font-size: 1.1rem;
+                margin-top: 25px;
+            }
+        }
+        
+        .lantern {
+            position: absolute;
+            width: 40px;
+            height: 55px;
+            background: linear-gradient(to bottom, #ff69b4, #ffb6c1, #ffe4e1);
+            border-radius: 8px;
+            z-index: 0;
+            animation: swing 6s infinite ease-in-out;
+            box-shadow: 0 0 15px rgba(255, 105, 180, 0.3);
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.05));
+            display: none;
+        }
+        
+        @media (min-width: 480px) {
+            .lantern {
+                display: block;
+                width: 45px;
+                height: 60px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .lantern {
+                width: 60px;
+                height: 80px;
+                border-radius: 10px;
+            }
+        }
+        
+        @keyframes swing {
+            0%, 100% { transform: rotate(-4deg); }
+            50% { transform: rotate(4deg); }
+        }
+        
+        @media (min-width: 768px) {
+            @keyframes swing {
+                0%, 100% { transform: rotate(-5deg); }
+                50% { transform: rotate(5deg); }
+            }
+        }
+        
+        .lantern:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 14px;
+            width: 12px;
+            height: 10px;
+            background: #ff1493;
+            border-radius: 5px;
+            box-shadow: 0 0 8px rgba(255, 20, 147, 0.4);
+        }
+        
+        @media (min-width: 768px) {
+            .lantern:before {
+                top: -10px;
+                left: 20px;
+                width: 15px;
+                height: 12px;
+                border-radius: 6px;
+            }
+        }
+        
+        .lantern:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 17px;
+            width: 6px;
+            height: 12px;
+            background: #ff69b4;
+            border-radius: 3px;
+        }
+        
+        @media (min-width: 768px) {
+            .lantern:after {
+                bottom: -15px;
+                left: 25px;
+                width: 8px;
+                height: 15px;
+            }
+        }
+        
+        .lantern-1 { top: 10%; left: 5%; }
+        .lantern-2 { top: 15%; right: 6%; }
+        
+        .star {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 1.2rem;
+            animation: twinkle 3s infinite;
+            filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05));
+            z-index: 0;
+            display: none;
+        }
+        
+        @media (min-width: 480px) {
+            .star {
+                display: block;
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .star {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+        
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #ff69b4;
+            top: -10px;
+            z-index: 100;
+            opacity: 0;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        
+        .light-beam {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0.4;
+            filter: blur(15px);
+            display: none;
+        }
+        
+        @media (min-width: 768px) {
+            .light-beam {
+                display: block;
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        .beam-1 { top: -60px; left: -60px; }
+        .beam-2 { bottom: -60px; right: -60px; }
+        
+        /* Prevent text selection on buttons */
+        .btn, .close-btn {
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        
+        /* Improve touch targets for mobile */
+        @media (max-width: 767px) {
+            .btn, .close-btn {
+                min-height: 50px;
+            }
+        }
+        
+        /* Optimize animations for mobile */
+        @media (max-width: 767px) {
+            .confetti {
+                display: none;
+            }
+        }
+        
+        /* Custom scrollbar for message */
+        .eid-message {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .eid-message::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .eid-message::-webkit-scrollbar-track {
+            background: rgba(255, 105, 180, 0.1);
+            border-radius: 10px;
+        }
+        
+        .eid-message::-webkit-scrollbar-thumb {
+            background: rgba(255, 20, 147, 0.3);
+            border-radius: 10px;
+        }
+        
+        .eid-message::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 20, 147, 0.5);
+        }
+        
+        /* Heart rain animation */
+        .heart-rain {
+            position: fixed;
+            font-size: 1.5rem;
+            color: #ff69b4;
+            top: -20px;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+    
+    <div class="no-message" id="noMessage">
+        <h3>😊 Wait a moment!</h3>
+        <p>Eid ki khushiyan aapke intezar mein hain!</p>
+        <p>"NO" ka option sirf test ke liye hai,</p>
+        <p>Asli surprise ke liye "YES" par click karein! 🌙</p>
+        <button class="close-btn" id="closeBtn">OK, samajh gyee!</button>
+    </div>
+    
+    <div class="container">
+        <div class="golden-border"></div>
+        <div class="moon"></div>
+        
+        <div class="light-beam beam-1"></div>
+        <div class="light-beam beam-2"></div>
+        
+        <div class="lantern lantern-1"></div>
+        <div class="lantern lantern-2"></div>
+        
+        <div class="decoration">☪</div>
+        <div class="decoration">⭐</div>
+        <div class="decoration">🌙</div>
+        <div class="decoration">✨</div>
+        <div class="decoration">🕌</div>
+        <div class="decoration">💖</div>
+        
+        <!-- Stars - only on larger screens -->
+        <div class="star" style="top: 10%; left: 12%;">✦</div>
+        <div class="star" style="top: 30%; right: 18%;">✧</div>
+        <div class="star" style="bottom: 25%; left: 18%;">✦</div>
+        <div class="star" style="bottom: 35%; right: 12%;">✧</div>
+        
+        <div class="mosque-icon">
+            <i class="fas fa-mosque"></i>
+        </div>
+        
+        <h1 class="eid-title">Eid Mubarak</h1>
+        <p class="subtitle">May Allah's blessings shine upon you and your family</p>
+        
+        <div class="prompt-container" id="prompt">
+            <h2 class="prompt-question">Do you want an Eid surprise? 🎁</h2>
+            
+            <div class="button-container">
+                <button class="btn btn-yes" id="yesBtn">
+                    <i class="fas fa-gift"></i> &nbsp; YES
+                </button>
+                <button class="btn btn-no disabled" id="noBtn">
+                    <i class="fas fa-times"></i> &nbsp; NO
+                </button>
+            </div>
+            
+            <p class="instruction">Try clicking "NO" first to see a message, then click "YES" for the Eid surprise!</p>
+        </div>
+        
+        <div class="message-container" id="message">
+            <h2 class="eid-wish">Eid Mubarak! 🌙✨💖</h2>
+            
+            <div class="eid-message">
+                <p class="special-highlight">Wishing You A Blissful Eid-Al-Fitar! <span class="heart-icon">🌙🥳🦋</span></p>
+                
+                <p>You And Your Family Will Be In My Prayers And..Thoughts<span class="heart-icon">🫂🫶🏻</span>, My Heartiest Regards Go To you And Your Family May Allah Nvr Leave Your side <span class="heart-icon">❤️👀</span></p>
+                
+                <p>Your Prayers and Sacrifice Will Nvr Go unanswered , On This Eid-Al-Fitar <span class="heart-icon">👀🫶🏻🌙</span> Embrace Allah's Divine Blessing With All That You Have!<span class="heart-icon">❤‍🩹❤️🫂</span></p>
+                
+                <p class="special-highlight">On This Auspicious Occasion, May all Your Good Deed's be Accepted and You Be Awarded the Highest Reward For All Eid-Al-Fitar Mubarik!<span class="heart-icon">👀🥳🦋</span></p>
+                
+                <p>May Your Love And Faith For Allah be Rewarded With<span class="heart-icon">🫂🫶🏻</span> Peace, Happiness And Success For Today And always , Wishing You a Joyful Eid-Al-Fitar<span class="heart-icon">🫶🏻🫂👀🥳</span></p>
+                
+                <p>May The Joy Of Eid Surround You And Your Family<span class="heart-icon">😘❤‍🩹</span></p>
+                
+                <p>May Allah Shower His Blessing's Upon Us And Accept Our Prayers</p>
+                
+                <p>May Allah Grant You and Your Family A Prosperous Life</p>
+                
+                <p class="special-highlight">And Again Eid Al-Fitar Mubarik Meri Pyari Si Jaan<span class="heart-icon">👀🌙🥳</span></p>
+                
+                <p class="special-highlight">Wishing You A Blissful Eid-Al-Fitar! <span class="heart-icon">🌙🥳🦋</span></p>
+                
+                <p>You And Your Family Will Be In My Prayers And..Thoughts<span class="heart-icon">🫂🫶🏻</span>, My Heartiest Regards Go To you And Your Family May Allah Nvr Leave Your side <span class="heart-icon">❤️👀</span></p>
+                
+                <p>Your Prayers and Sacrifice Will Nvr Go unanswered , On This Eid-Al-Fitar <span class="heart-icon">👀🫶🏻🌙</span> Embrace Allah's Divine Blessing With All That You Have!<span class="heart-icon">❤‍🩹❤️🫂</span></p>
+                
+                <p class="special-highlight">On This Auspicious Occasion, May all Your Good Deed's be Accepted and You Be Awarded the Highest Reward For All Eid-Al-Fitar Mubarik!<span class="heart-icon">👀🥳🦋</span></p>
+                
+                <p>May Your Love And Faith For Allah be Rewarded With<span class="heart-icon">🫂🫶🏻</span> Peace, Happiness And Success For Today And always , Wishing You a Joyful Eid-Al-Fitar<span class="heart-icon">🫶🏻🫂👀🥳</span></p>
+                
+                <p>May The Joy Of Eid Surround You And Your Family<span class="heart-icon">😘❤‍🩹</span></p>
+                
+                <p>May Allah Shower His Blessing's Upon Us And Accept Our Prayers</p>
+                
+                <p>May Allah Grant You and Your Family A Prosperous Life</p>
+                
+                <p class="special-highlight">And Again Eid Al-Fitar Mubarik Meri Pyari Si Jaan<span class="heart-icon">👀🌙🥳</span></p>
+            </div>
+            
+            <div class="signature">With All My Love and Duas, Eid Mubarak! 🤲🌙✨💖</div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const promptContainer = document.getElementById('prompt');
+            const messageContainer = document.getElementById('message');
+            const noMessage = document.getElementById('noMessage');
+            const overlay = document.getElementById('overlay');
+            const closeBtn = document.getElementById('closeBtn');
+            const container = document.querySelector('.container');
+            
+            let noClickCount = 0;
+            const messages = [
+                {
+                    title: "Are you sure? 🤔",
+                    message: `Eid ka surprise miss na karein!<br>Chalo, ek baar 'YES' try karein?`
+                },
+                {
+                    title: "Wait! ⏳",
+                    message: `Eid ki khushiyan aap se door nahi bhaagna chahti!<br>'YES' par click karke dekhiye!`
+                },
+                {
+                    title: "Last chance! 😊",
+                    message: `Aapko pakka surprise chahiye!<br>Ab to 'YES' par click hi kar dein!`
+                },
+                {
+                    title: "Okay, you win! 😄",
+                    message: `Aap jeet gaye!<br>Ab 'YES' par click karke Eid Mubarak ka surprise lein!`
+                }
+            ];
+            
+            // Mobile optimization - reduce animations on small screens
+            const isMobile = window.innerWidth <= 767;
+            
+            // When NO button is clicked
+            noBtn.addEventListener('click', function() {
+                if (noBtn.classList.contains('disabled')) {
+                    // Mobile-friendly shake animation
+                    noBtn.style.animation = 'shake 0.4s';
+                    setTimeout(() => {
+                        noBtn.style.animation = '';
+                    }, 400);
+                    
+                    // Show custom message
+                    if (noClickCount < messages.length) {
+                        const msg = messages[noClickCount];
+                        document.querySelector('#noMessage h3').textContent = msg.title;
+                        document.querySelector('#noMessage p').innerHTML = msg.message;
+                    } else {
+                        document.querySelector('#noMessage h3').textContent = "Chalo ab ho gaya! 😄";
+                        document.querySelector('#noMessage p').innerHTML = "Ab to 'YES' par click karo!<br>Eid Mubarak ka wait nahi kar raha!";
+                    }
+                    
+                    // Show message popup
+                    noMessage.classList.add('active');
+                    overlay.classList.add('active');
+                    
+                    // Increment counter
+                    noClickCount++;
+                    
+                    // Change button text and style after a few clicks
+                    if (noClickCount >= 2) {
+                        noBtn.innerHTML = '<i class="fas fa-smile-wink"></i> &nbsp; NO (Try YES!)';
+                        noBtn.style.background = 'linear-gradient(145deg, #ff85c1, #ff69b4)';
+                    }
+                }
+            });
+            
+            // Close message popup
+            closeBtn.addEventListener('click', function() {
+                noMessage.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            overlay.addEventListener('click', function() {
+                noMessage.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+            
+            // When YES button is clicked
+            yesBtn.addEventListener('click', function() {
+                // Hide prompt and show message with smooth transition
+                promptContainer.style.opacity = '0';
+                promptContainer.style.transform = 'translateY(15px)';
+                promptContainer.style.pointerEvents = 'none';
+                
+                setTimeout(() => {
+                    promptContainer.style.display = 'none';
+                    messageContainer.style.display = 'block';
+                    
+                    // Create celebration effect (optimized for mobile)
+                    createCelebration();
+                    
+                    // Play sound (only if not on mobile or user allows)
+                    if (!isMobile) {
+                        playCelebrationSound();
+                    }
+                }, 300);
+            });
+            
+            // Mobile-optimized celebration effects
+            function createCelebration() {
+                // Create heart rain instead of confetti
+                const heartCount = isMobile ? 50 : 100;
+                
+                for (let i = 0; i < heartCount; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'heart-rain';
+                        heart.innerHTML = '❤️';
+                        
+                        // Random position and size
+                        heart.style.left = Math.random() * 100 + 'vw';
+                        heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                        
+                        // Only add hearts on non-mobile or if performance is good
+                        if (!isMobile || i < 20) {
+                            document.body.appendChild(heart);
+                            
+                            // Animate hearts falling
+                            const animation = heart.animate([
+                                { 
+                                    top: '-20px', 
+                                    opacity: 1, 
+                                    transform: 'rotate(0deg) scale(1)',
+                                },
+                                { 
+                                    top: '100vh', 
+                                    opacity: 0, 
+                                    transform: 'rotate(' + (Math.random() * 360) + 'deg) scale(0.8)',
+                                }
+                            ], {
+                                duration: Math.random() * 2000 + 1500,
+                                easing: 'cubic-bezier(0.215, 0.61, 0.355, 1)'
+                            });
+                            
+                            // Remove after animation
+                            animation.onfinish = () => {
+                                if (heart.parentNode) {
+                                    heart.remove();
+                                }
+                            };
+                        }
+                    }, i * 30);
+                }
+                
+                // Add pulse animation to container
+                container.style.animation = 'pulse 1.2s ease 2';
+                
+                // Create floating hearts (only on non-mobile)
+                if (!isMobile) {
+                    for (let i = 0; i < 20; i++) {
+                        setTimeout(() => {
+                            const element = document.createElement('div');
+                            element.className = 'star';
+                            element.innerHTML = '💖';
+                            element.style.position = 'fixed';
+                            element.style.left = Math.random() * 100 + 'vw';
+                            element.style.top = '100vh';
+                            element.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+                            element.style.zIndex = '100';
+                            element.style.animation = 'twinkle 1s infinite';
+                            
+                            document.body.appendChild(element);
+                            
+                            // Animate floating up
+                            const floatAnim = element.animate([
+                                { top: '100vh', opacity: 1 },
+                                { top: '-50px', opacity: 0 }
+                            ], {
+                                duration: 2000,
+                                easing: 'ease-out'
+                            });
+                            
+                            floatAnim.onfinish = () => {
+                                if (element.parentNode) {
+                                    element.remove();
+                                }
+                            };
+                        }, i * 100);
+                    }
+                }
+                
+                // Make moon pulse
+                const moon = document.querySelector('.moon');
+                moon.style.animation = 'moonGlow 0.4s infinite alternate';
+                
+                setTimeout(() => {
+                    moon.style.animation = 'moonGlow 4s infinite alternate';
+                }, 2000);
+                
+                // Animate heart icons
+                const heartIcons = document.querySelectorAll('.heart-icon');
+                heartIcons.forEach((heart, index) => {
+                    setTimeout(() => {
+                        heart.style.animation = 'heartbeat 1s 3';
+                    }, index * 200);
+                });
+            }
+            
+            // Celebration sound (muted on mobile for better UX)
+            function playCelebrationSound() {
+                try {
+                    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    
+                    // Play a cheerful melody
+                    const notes = [523.25, 587.33, 659.25, 698.46, 783.99, 880, 987.77, 1046.50];
+                    const volumes = [0.2, 0.25, 0.3, 0.35, 0.3, 0.25, 0.2, 0.15];
+                    
+                    notes.forEach((note, index) => {
+                        setTimeout(() => {
+                            const oscillator = audioContext.createOscillator();
+                            const gainNode = audioContext.createGain();
+                            
+                            oscillator.connect(gainNode);
+                            gainNode.connect(audioContext.destination);
+                            
+                            oscillator.frequency.value = note;
+                            oscillator.type = 'sine';
+                            
+                            gainNode.gain.setValueAtTime(volumes[index], audioContext.currentTime);
+                            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.4);
+                            
+                            oscillator.start(audioContext.currentTime);
+                            oscillator.stop(audioContext.currentTime + 0.4);
+                        }, index * 120);
+                    });
+                } catch (e) {
+                    // Audio not supported, silently fail
+                }
+            }
+            
+            // Add CSS for animations
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0) rotate(0deg); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px) rotate(-1deg); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px) rotate(1deg); }
+                }
+                
+                @keyframes pulse {
+                    0% { transform: scale(1); box-shadow: 0 15px 35px rgba(219, 112, 147, 0.15); }
+                    50% { transform: scale(1.02); box-shadow: 0 20px 40px rgba(219, 112, 147, 0.2); }
+                    100% { transform: scale(1); box-shadow: 0 15px 35px rgba(219, 112, 147, 0.15); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Handle orientation change
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    document.body.style.height = window.innerHeight + 'px';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
